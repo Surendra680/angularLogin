@@ -1,0 +1,32 @@
+<form  (ngSubmit)="processRegistration()">
+
+
+  <div>
+    <label for="">enter email</label>
+
+    <input type="email"   [(ngModel)]="customer.email" name="t2" >
+  </div>
+  <div>
+    <label for="">enter password</label>
+
+    <input type="password" name="t3" [(ngModel)]="customer.password">
+  </div>
+  <div>
+    <label for="">enter name</label>
+
+    <input type="text" name="t1" [(ngModel)]="customer.name">
+  </div>
+
+
+  <div>
+    <label for="">enter date of birth</label>
+
+    <input type="date" name="t4" [(ngModel)]="customer.dateOfBirth">
+  </div>
+
+  <div>
+
+    <input type="submit" value="register">
+  </div>
+</form>
+
