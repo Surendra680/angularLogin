@@ -1,3 +1,5 @@
+
+<div class="container">
 <form  (ngSubmit)="processRegistration()">
 
 
@@ -11,10 +13,19 @@
 
     <input type="password" name="t3" [(ngModel)]="customer.password">
   </div>
-  <div>
+  <div class="form-group">
     <label for="">enter name</label>
 
-    <input type="text" name="t1" [(ngModel)]="customer.name">
+    <input type="text" name="t1" [(ngModel)]="customer.name" required minlength="4" #name="ngModel" class="form-control">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors?.['required']">
+        Name is required.
+      </div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name must be at least 4 characters long.
+      </div>
+
+    </div>
   </div>
 
 
@@ -39,4 +50,5 @@ your customer id is {{customerId}}
 
 
 </form>
+</div>
 
