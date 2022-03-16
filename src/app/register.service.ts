@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { RegisterStatus } from './register-status';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class RegisterService {
   constructor( private http:HttpClient) { }
 
 
-  register(customer:Customer):Observable<object>{
+  register(customer:Customer):Observable<RegisterStatus>{
 
     console.log(customer)
 
-    return this.http.post(`${this.url}`,customer)
+    return this.http.post<RegisterStatus>(`${this.url}`,customer)
 
 
   }

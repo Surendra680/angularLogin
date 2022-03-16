@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../customer';
 import { RegisterService } from '../register.service';
@@ -9,9 +10,16 @@ import { RegisterService } from '../register.service';
 })
 export class CustomerRegisterComponent implements OnInit {
 
+     customerId=0;
+     message="";
+
+
   constructor(private service:RegisterService) { }
 
    customer:Customer=new Customer();
+
+
+
 
   ngOnInit(): void {
 
@@ -19,9 +27,17 @@ export class CustomerRegisterComponent implements OnInit {
 
   processRegistration(){
 
-    this.service.register(this.customer).subscribe(res=>{
-      alert(res)
-    })
+    this.service.register(this.customer).subscribe(
+      res=>{
+      if(res.status==true){
+
+        this.customerId=res.registeredCustomerId;
+      }else{
+        this.message=res.messageIfAny;
+      }
+    }
+
+    )
 
   }
 

@@ -28,5 +28,15 @@
 
     <input type="submit" value="register">
   </div>
+  <div *ngIf="customerId">
+thank you for registering with us!
+your customer id is {{customerId}}
+  </div>
+
+<div *ngIf="message">
+{{message}}
+</div>
+
+
 </form>
 
